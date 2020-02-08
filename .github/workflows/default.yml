@@ -19,3 +19,9 @@ jobs:
         run: ./gradlew assembleDebug
       - name: Assemble Release
         run: ./gradlew assembleRelease
+     - name: Archive production artifacts
+        if: always()
+        uses: actions/upload-artifact@v1
+        with:
+          name: output
+          path: build/outputs/mapping
